@@ -202,6 +202,21 @@ else:
 
 """
 
+#Crear un programa que pregunte al usuario 3 numeros y 
+# los guarde en una variable lista, y sume esa lista y 
+# muestre al usuario esa suma, tenes la funcion sum() que acepta una lista o tupla de valores enteros y devuelve una suma.
+
+"""
+num1 = int(input("Ingrese tu número: "))
+num2 = int(input("Ingrese tu número: "))
+num3 = int(input("Ingrese tu número: "))
+lista = []
+lista.append(num1)
+lista.append(num2)
+lista.append(num3)
+resultado = sum(lista)
+print(resultado)
+"""
 
 #Saber si un alumno aprueba o no un curso, sabiendo que aprobara si su promedio de 3 calificaciones 
 # es mayor o igual a 70. Queda desaprobado en caso contrario.
@@ -280,3 +295,24 @@ lista1.extend(lista2)
 print("La lista actualizada es: \n",lista1)
 
 """
+
+
+#Crear un programa que pida al usuario 2 materias a consultar, 
+# el programa debe revisar que esas materias esten dentro de un 
+# diccionario calificaciones, las claves de ese diccionario son 
+# los nombres de materias y sus valores son un numero calificaciones de ese alumno
+"""
+clave1 = input("Ingrese la materia a consultar: ").title()
+clave2 = input("Ingrese la segunda materia a consultar: ").title()
+diccionario = {
+               "Matematicas": 10,
+               "Literatura": 9,
+               "Fisica": 8,
+               "Quimica": 9
+            }
+if (clave1 and clave2) in diccionario:
+    print(f"En la materia {clave1} tiene como nota: {diccionario[clave1]}.\n Y en la materia {clave2} tiene como nota: {diccionario[clave2]}.")
+else: 
+    print("No estas cursando esa materia.")
+"""
+
