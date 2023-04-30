@@ -240,19 +240,6 @@ print(usuario["nombre"],"tiene",usuario["edad"],"años", "y vive en",usuario["di
 
 #Crear algoritmo que cargue 5 numeros y agregar 1 lista. Luego, una vez cargada,
 #controle y sustituya cualquier elemento negativo por 0.
-"""
-numero1 = int(input("Cargue su primer número: "))
-numero2 = int(input("Cargue su segundo número: "))
-numero3 = int(input("Cargue su primer número: "))
-numero4 = int(input("Cargue su primer número: "))
-numero5 = int(input("Cargue su primer número: "))
-lista = []
-lista.append(numero1)
-lista.append(numero2)
-lista.append(numero3)
-lista.append(numero4)
-lista.append(numero5)
-"""
 
 
 #Crea una tupla con los meses del año, pide números al usuario, si el numero esta entre 1 y la longitud
@@ -284,3 +271,12 @@ else:
 
 #Escribir un programa que cree un diccionario simulando una cesta de la compra. El programa debe preguntar 5 artículos 
 #y sus precios y añadir el par al diccionario. Después se debe mostrar por pantalla la lista de la compra y el monto total
+
+#Cargue dos listas, y actualice la primer lista con los elementos que están en la segunda.
+"""
+lista1 = ["a","b","c","d","f","g"]
+lista2 = ["l","r","s","t","u"]
+lista1.extend(lista2)
+print("La lista actualizada es: \n",lista1)
+
+"""
