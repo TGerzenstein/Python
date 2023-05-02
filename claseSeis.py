@@ -16,16 +16,25 @@ Género: [género de la película]
 
 films = []                                                     #comenzar una lista vacía
 
-for i in range(3):                                             #La función range() me permite contrar el num de ciclos 
+for i in range(5):                                             #La función range() me permite contrar el num de ciclos 
         titulo = input("Escribe el título de la peli: ")       #bloque del ciclo
         anio = input("Ingrese el año de la peli: ")
-        pelicula = {
-          "título": titulo,
-          "año": anio,
+        director = input("Ingrese el nombre del director: ")
+        genero = input("Ingrese el género de la peli: ")
+        pelicula = {                                           
+          "titulo": titulo,
+          "anio": anio,
+          "director": director,
+          "genero": genero,
         }
         films.append(pelicula)
     
-for clave in range(0,len(films)):
-        print(films[clave], end=" ")
+for p in films:
+        print("---------------")
+        print("Título:","[",p["titulo"],"]")
+        print("Año:","[",p["anio"],"]")
+        print("Director:","[",p["director"],"]")
+        print("Género:","[",p["genero"],"]")
 
 
+        
