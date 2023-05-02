@@ -11,12 +11,9 @@ Año: [año de la película]
 Director: [nombre del director]
 Género: [género de la película]
 
-"""
-
-
 films = []                                                     #comenzar una lista vacía
 
-for i in range(5):                                             #La función range() me permite contrar el num de ciclos 
+for i in range(1):                                             #La función range() me permite contrar el num de ciclos 
         titulo = input("Escribe el título de la peli: ")       #bloque del ciclo
         anio = input("Ingrese el año de la peli: ")
         director = input("Ingrese el nombre del director: ")
@@ -31,10 +28,34 @@ for i in range(5):                                             #La función rang
     
 for p in films:
         print("---------------")
-        print("Título:","[",p["titulo"],"]")
-        print("Año:","[",p["anio"],"]")
-        print("Director:","[",p["director"],"]")
-        print("Género:","[",p["genero"],"]")
+        print("Título: "+"["+p["titulo"]+"]")
+        print("Año: "+"["+p["anio"]+"]")
+        print("Director: "+"["+p["director"]+"]")
+        print("Género: "+"["+p["genero"]+"]")
 
+ """
 
-        
+ 
+#Vamos a crear un juego! En este juego hay un número secreto(entre 1 y 100)
+# Solicitá al usuario que ingrese un número, si adivina, gana! 
+# Además el programa deberá indicarle al usuario si el número secreto, 
+# en cada iteración, es mayor o menor al ingresado.
+
+#range (fin)
+#range (inicio,fin)
+#range (inicio, fin, pasos)
+
+variable = 0                                                            #variable inic
+num = int(input("Escribe el número y adivina si es el secreto: "))
+
+while num != 0:
+      if num == 45:
+         print("¡¡¡Ganaste!!!")
+      elif (num >= 46) and (num <= 100):
+         print("El número ingresado es mayor al número secreto")
+      elif (num >= 1) and (num <= 44):
+         print("El número ingresado es menor al número secreto")            
+      break
+      continue
+
+      
