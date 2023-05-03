@@ -45,17 +45,21 @@ for p in films:
 #range (inicio,fin)
 #range (inicio, fin, pasos)
 
-variable = 0                                                            #variable inic
+#variable = 0                   #variable inic                                 
+
+
 num = int(input("Escribe el número y adivina si es el secreto: "))
 
-while num != 0:
-      if num == 45:
-         print("¡¡¡Ganaste!!!")
-      elif (num >= 46) and (num <= 100):
+while (num > 1) and (num <100):
+      if (num >= 26) and (num <= 100):
          print("El número ingresado es mayor al número secreto")
-      elif (num >= 1) and (num <= 44):
-         print("El número ingresado es menor al número secreto")            
-      break
-      continue
-
+         num = int(input("Escribe el número y adivina si es el secreto: "))
+      elif (num >= 1) and (num <= 24):
+         print("El número ingresado es menor al número secreto")
+         num = int(input("Escribe el número y adivina si es el secreto: "))
+      elif num == 25:
+         print("¡Ganaste!")
+         break     
+else:
+   print("Fallaste, intenta de nuevo.")
       

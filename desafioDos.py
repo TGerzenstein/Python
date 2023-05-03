@@ -1,13 +1,10 @@
 #Desafío 2: Analizador de textos
 
-
-
 frase = input("Ingresa una frase o fragmento de tu poeta favorito: ").lower()
 letras = input("Ingresa 3 letras que quieras: ").lower()
 
 lista = []
 lista.append(letras)
-
 
 #2) Longitud
 print(len(frase))
@@ -22,5 +19,7 @@ if "python" in frase:
     print("Esta cadena de caracteres posee la palabra python.")
 else: 
     print("No posee la palabra.")
+
+
 
 
