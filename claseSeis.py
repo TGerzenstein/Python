@@ -1,3 +1,5 @@
+
+#1)
 """
 Ejercicio: Crea una lista de diccionarios que contenga información consultada a los usuarios 
 sobre diferentes películas. 
@@ -11,10 +13,14 @@ Año: [año de la película]
 Director: [nombre del director]
 Género: [género de la película]
 
-films = []                                                     #comenzar una lista vacía
+"""
 
-for i in range(1):                                             #La función range() me permite contrar el num de ciclos 
-        titulo = input("Escribe el título de la peli: ")       #bloque del ciclo
+#Solución: 
+""" 
+films = []                                                           #comenzar una lista vacía
+
+for i in range(5):                                                   #La función range() me permite contrar el num de ciclos 
+        titulo = input("Escribe el título de la peli: ")             #bloque del ciclo
         anio = input("Ingrese el año de la peli: ")
         director = input("Ingrese el nombre del director: ")
         genero = input("Ingrese el género de la peli: ")
@@ -35,7 +41,9 @@ for p in films:
 
  """
 
- 
+#2
+
+""" 
 #Vamos a crear un juego! En este juego hay un número secreto(entre 1 y 100)
 # Solicitá al usuario que ingrese un número, si adivina, gana! 
 # Además el programa deberá indicarle al usuario si el número secreto, 
@@ -47,7 +55,8 @@ for p in films:
 
 #variable = 0                   #variable inic                                 
 
-
+"""
+""" 
 num = int(input("Escribe el número y adivina si es el secreto: "))
 
 while (num > 1) and (num <100):
@@ -59,7 +68,6 @@ while (num > 1) and (num <100):
          num = int(input("Escribe el número y adivina si es el secreto: "))
       elif num == 25:
          print("¡Ganaste!")
-         break     
-else:
-   print("Fallaste, intenta de nuevo.")
-      
+         break   
+print("Fallaste, intenta de nuevo.")
+        """

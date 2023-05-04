@@ -87,10 +87,3 @@ else:
 
 """
 
-materia1 = ("Ingresa la materia: ")
-materia2 = ("Ingresa la siguiente materia: ")
-dic = {'Matemáticas': 6, 'Física': 4, 'Química': 5}
-if materia1 in dic and materia2 in dic:
-    print(f"Su nota en {materia1} es {dic[materia1]} y su nota en {materia2} es {dic[materia2]}")
-else:
-    print("No curso esas materias.") 
