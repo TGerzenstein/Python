@@ -7,50 +7,56 @@ a = input("Ingresa una letra que vos desees: ").lower()
 b = input("Ingresa una letra que vos desees: ").lower()
 c = input("Ingresa una letras que vos desees: ").lower()
 
-
-
+#Se eliminan signos de puntuación
 eliminar = ".;,:¡!¿?\"\'"
 for caracter in eliminar:
     frase  = frase.replace(caracter, "")
-
-palabras = frase.split()                                        #separar y convertir en lista
+#Se eliminan los espacios
+palabras = frase.split()                                        
+print(" ")
 print("El texto ingresado por el usuario es: \n -->",frase)
+print(" ")
 
-#2 - Mostrar la longitud de la lista de palabras:
+
+#1 - Cantidad de veces que aparecen las letras que elegiste: 
+print(f"La cantidad de veces que aparece {a} es: ",frase.count(a))
+print(" ")
+print(f"La cantidad de veces que aparece {b} es: ",frase.count(b))
+print(" ")
+print(f"La cantidad de veces que aparece {c} es: ",frase.count(c))
+print(" ")
+
+#2 - Mostrar la longitud de palabras en el texto:
 print("El número total de palabras es: ", len(palabras))
+print(" ")
 
-
-#Las letras escogidas
-print(f"Las letras escogidas son: {a}{b}{c}")
-
-
-
-#Guardar en una lista las letras elegidas
-lista_letras = []
-lista_letras.append(a)
-lista_letras.append(b)
-lista_letras.append(c)
 
 #3 - Caracteres:
 #El primer caracter del texto es: 
-name = palabras[0]
+primer_palabra = palabras[0]
 
-if len(name) > 0:
-    firstChar = name[0]
-    print(f'El primer caracter del texto es: {firstChar}')
+if len(primer_palabra) > 0:
+    y = primer_palabra[0]
+    print(f'El primer caracter del texto es: {y}')
+    print(" ")
 else:
     print('Please check.')
 
 #El último caracter del texto es:
-last = palabras[-1]
+ultimo_carac = palabras[-1]
 
-if len(last) > 0:
-    lastChar = last[-1]
-    print(f'El ultimo caracter del texto es: {lastChar}')
+if len(ultimo_carac) > 0:
+    x = ultimo_carac[-1]
+    print(f'El ultimo caracter del texto es: {x}')
+    print(" ")
 else:
     print('Please check.')    
 
-#4 -Mostrar en orden inverso la frase: 
+#4 -Mostrar en orden inverso de la frase: 
 inverso = palabras.copy()
 palabras.reverse()                                             
 print("El texto inverso quedaría así: \n -->",palabras)
+print(" ")
+
+#Encontrar la palabra "python"
+
