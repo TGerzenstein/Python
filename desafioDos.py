@@ -10,7 +10,8 @@ c = input("Ingresa una letras que vos desees: ").lower()
 #Se eliminan signos de puntuación
 eliminar = ".;,:¡!¿?\"\'"
 for caracter in eliminar:
-    frase  = frase.replace(caracter, "")
+  frase = frase.replace(caracter, "")
+
 #Se eliminan los espacios
 palabras = frase.split()                                        
 print(" ")
@@ -33,30 +34,40 @@ print(" ")
 
 #3 - Caracteres:
 #El primer caracter del texto es: 
-primer_palabra = palabras[0]
 
-if len(primer_palabra) > 0:
-    y = primer_palabra[0]
-    print(f'El primer caracter del texto es: {y}')
-    print(" ")
+primer_letra = palabras[0]
+ultima_letra = palabras[-1]
+
+
+if len(primer_letra) > 0:
+  y = primer_letra[0]
+  print(f"El primer caracter del texto es: {y}")
+
+if len(ultima_letra) > 0:
+  x = ultima_letra[-1]
+  print(f"El ultimo caracter del texto es: {x}")
+  print(" ")
+
 else:
-    print('Please check.')
+  print("Por favor, revisa tu opcion")   
 
-#El último caracter del texto es:
-ultimo_carac = palabras[-1]
-
-if len(ultimo_carac) > 0:
-    x = ultimo_carac[-1]
-    print(f'El ultimo caracter del texto es: {x}')
-    print(" ")
-else:
-    print('Please check.')    
 
 #4 -Mostrar en orden inverso de la frase: 
-inverso = palabras.copy()
-palabras.reverse()                                             
-print("El texto inverso quedaría así: \n -->",palabras)
+invertir_texto = palabras.copy()
+invertir_texto.reverse()                                             
+print(f"El texto inverso quedaría así: \n --> {invertir_texto}")
 print(" ")
 
-#Encontrar la palabra "python"
 
+#Encontrar la palabra "python"
+encontrado = False
+
+for ele in palabras:
+  if ele == "python":
+    encontrado = True
+
+if encontrado:
+  print("La palabra Python está en el texto.")
+    
+else:
+  print("No está la palabra Python.")
