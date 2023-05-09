@@ -46,19 +46,19 @@ costo_fijo = 1.5
 
 
 if pedido == 1:
-  print("Pediste pizza chica")
+  print("Pediste pizza chica.")
   pagar = 1100 + costo_fijo * num_de_ingredientes
 
 elif pedido == 2:
-  print("Pediste una pizza mediana")
+  print("Pediste una pizza mediana.")
   pagar = 1200 + costo_fijo * num_de_ingredientes
 
 elif pedido == 3:
-  print("Pediste pizza grande")
+  print("Pediste pizza grande.")
   pagar = 1300 + costo_fijo * num_de_ingredientes
 
 else:
-  print("No pediste nada") 
+  print("No pediste nada.")
 
 #Prueba del programa:  
 print(f"El número de ingredientes es= {num_de_ingredientes}")
