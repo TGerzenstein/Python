@@ -46,7 +46,7 @@ costo_fijo = 1.5
 
 
 if pedido == 1:
-  print("Pediste pizza chica.")
+  print("Pediste pizza chica")
   pagar = 1100 + costo_fijo * num_de_ingredientes
 
 elif pedido == 2:
