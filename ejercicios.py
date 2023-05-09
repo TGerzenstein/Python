@@ -11,14 +11,15 @@ while x < 50:
 
 #1) Escribe un programa que pida al usuario una palabra y luego imprima cada
 #letra de la palabra en una línea separada.
-"""  
+
+""" 
 palabra = input("Escribe una palabra: ")
 
 for letra in palabra:
-    palabra.split() # separar línea en palabras, por espacio en blanco
+    palabra.split(" ") # separar línea en palabras, por espacio en blanco
     print(letra)
-
  """
+
 #2) Escribe un programa que imprima los números pares del 1 al 100
 
 """ 
@@ -43,7 +44,7 @@ for letra in range(len(palabra)-1,-1,-1):
 
 #4) Escribe un programa que pida al usuario una cadena de texto y luego imprima
 #el número de palabras que contiene
-
+""" 
 texto = input("Escribe un texto: ")
 palabras = texto.split()           #dividir
 count = 0
@@ -51,11 +52,15 @@ count = 0
 for i in palabras:
         count+=1
         print(count)
+ """
+
+#Escribe un programa que pida al usuario una cadena de texto y determine
+#cuántas veces aparece cada letra en la cadena
 
 
-
-
-
-
-
-
+"""
+Escribir una función que calcule el total de una factura tras aplicarle el IVA.
+La función debe recibir la cantidad sin IVA y el porcentaje de IVA a aplicar,
+y devolver el total de la factura. Si se invoca la función sin pasarle el porcentaje de IVA,
+deberá aplicar un 21%.
+"""
