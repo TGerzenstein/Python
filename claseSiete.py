@@ -35,15 +35,15 @@ ingrediente extra tiene el mismo costo).
 
 
 
-#Compra de una pizza
+#Compra de una pizza. El usuario debe elegir su opción según el tamaño:
 pedido = int(input("""¡Bienvenido! Elige tu pizza: 
                   1 - Chica
                   2 - Mediana 
                   3- Grande 
                -->"""))
 num_de_ingredientes = int(input("Ingresa el número de ingredientes adicionales: "))
-
 costo_fijo = 1.5
+
 
 if pedido == 1:
   print("Pediste pizza chica")
@@ -60,6 +60,6 @@ elif pedido == 3:
 else:
   print("No pediste nada") 
 
+#Prueba del programa:  
 print(f"El número de ingredientes es= {num_de_ingredientes}")
 print(f"Tu pedido tiene un costo de: {pagar}")
-
