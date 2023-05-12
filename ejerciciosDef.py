@@ -15,20 +15,18 @@ suma(42,42)
 #Crea una función llamada saludo que tome el nombre de una persona como
 #parámetro e imprima un saludo personalizado.
 
-"""
+""" 
 def saludar(nombre):
     print(nombre)
-    #return nombre
+    return nombre
 
 
 saludar(nombre="Andres")
 saludar(nombre="Marcos")
 
-"""
-
+ """
 #Crea una función llamada invertir_cadena que tome una cadena de texto como
 #parámetro y devuelva la cadena invertida.
-
 """ 
 def invertir_cadena(cadena_de_texto):
     t = ''  
@@ -39,8 +37,8 @@ def invertir_cadena(cadena_de_texto):
     return t 
 
 invertir_cadena(cadena_de_texto="Ingrese el texto: ")
-"""
 
+"""
 #Crea una función llamada es_par que tome un número como parámetro y
 #devuelva Es par si el numero cumple con dichas condiciones y en caso contrario
 #devuelva Es impar o No es par.
