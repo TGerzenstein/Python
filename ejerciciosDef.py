@@ -57,7 +57,7 @@ es_par(num1=int(input("Ingresa el primer número: ")))
 
 #Crea una función llamada imprimir_pares que tome un número entero como
 #parámetro y imprima todos los números pares desde 1 hasta ese número.
-
+""" 
 def imprimir_pares(num):
   x= 1
   y= num
@@ -67,12 +67,37 @@ def imprimir_pares(num):
     x+=1
 
 imprimir_pares(num=10)
+ """
+
+#Crea una función llamada contar_vocales que tome una cadena de texto como
+#parámetro y devuelva el número de vocales que contiene.
+""" 
+def contar_vocales(cadena_texto):
+    Cuenta las vocales que hay en una cadena de texto
+    
+    vocales = "aeiou"
+    contador = 0
+    for i in cadena_texto:
+        if i in vocales:
+          contador = contador + 1
+    
+    print(f"Esta frase tiene {contador} vocales")
+    
+contar_vocales(cadena_texto="Hola mundo")
+
+ """
+
+#Crea una función llamada convertir_temperatura que tome una temperatura
+#en grados Celsius y la convierta a grados Fahrenheit. La fórmula de conversión
+#es: Fahrenheit = (Celsius * 9/5) + 32
 
 
+""" 
+def convertir_temperatura(celcius):
+     Convierte grados Celcius en grados Fahrenheit 
+    
+    return (celcius * 9/5) + 32
+    
 
-"""for i in range(0,num,2):
-    print(i)"""
-"""  if num % 2 == 0:
-     print(num)
-    else:
-     print("El num es impar.") """
+print(convertir_temperatura(celcius = 14))
+ """

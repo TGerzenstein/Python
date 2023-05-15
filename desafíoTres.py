@@ -20,7 +20,7 @@ es_ganador = False
 #Comienza el juego. Comienza a iterar.
 while numero_intentos > 0:
   numero = input("Ingresa un número: ")
-  #Se emplea esta condicion en caso de que se ingrese un número no entero. 
+
   # Volver a preguntar al usuario, sin descontar intentos.   
   while not numero.isdigit():
     print("Ingresa un número entero, por favor.")
