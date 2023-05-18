@@ -1,80 +1,116 @@
 #Desafio 4: La inmobiliaria
 
+print("\n------------------ Inmuebles ------------------ \n")
 
-lista_pisos = [{'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'}, 
-         {'año': 2016, 'metros': 80, 'habitaciones': 2, 'garaje': False, 'zona': 'B', 'estado': 'Reservado'}, 
-         {'año': 2000, 'metros': 180, 'habitaciones': 4, 'garaje': True, 'zona': 'A', 'estado': 'Disponible'}, 
-         {'año': 2015, 'metros': 95, 'habitaciones': 3, 'garaje': True, 'zona': 'B', 'estado': 'Vendido'},
-        {'año': 2008, 'metros': 60, 'habitaciones': 2, 'garaje': False, 'zona': 'C', 'estado': 'Disponible'}]
+lista_pisos = [{'id': 1, 'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'}, 
+         {'id': 2, 'año': 2016, 'metros': 80, 'habitaciones': 2, 'garaje': False, 'zona': 'B', 'estado': 'Reservado'}, 
+         {'id': 3,'año': 2000, 'metros': 180, 'habitaciones': 4, 'garaje': True, 'zona': 'A', 'estado': 'Disponible'}, 
+         {'id': 4, 'año': 2015, 'metros': 95, 'habitaciones': 3, 'garaje': True, 'zona': 'B', 'estado': 'Vendido'},
+        {'id': 5, 'año': 2008, 'metros': 60, 'habitaciones': 2, 'garaje': False, 'zona': 'C', 'estado': 'Disponible'}]
+
+ 
+print("\n------------------ n1 Agregar ------------------ \n")
+
+#Funcion para agregar a la lista un inmueble 
+def agregar_inmueble():
+        id = int(input("Escribe el ID del inmueble: "))
+        anio = int(input("Escribe el año del inmueble: "))    
+        metros = int(input("Ingrese los metros del inmueble: "))
+        habitaciones = int(input("Ingrese el número de habitaciones: "))
+        garaje = input("Ingrese S si tiene garaje, o N si no tiene: ").capitalize()
+        zona = input("Ingrese la zona: ")
+        estado = input("Ingrese el estado del inmueble: ").capitalize()
+        
+        if garaje == 'S':
+           garaje_booleano = True
+        else:
+           garaje_booleano = False 
+
+        nuevo_inmueble = {    
+          'id': id,                                             
+          'año': anio,
+          'metros': metros,
+          'habitaciones': habitaciones,
+          'garaje': garaje_booleano,
+          'zona': zona,
+          'estado': estado
+        }
+        lista_pisos.append(nuevo_inmueble)
+        print(nuevo_inmueble)
+
+        return nuevo_inmueble
 
 
-#Funcion agregar inmueble 
-def agregar_inmueble(dato):
-    lista_pisos.append(dato)
+agregar_inmueble()
+
+#Ejemplo de que dato ingresar en el input el usuario
+#dato={'d': 6, 'año': 2020, 'metros': 150, 'habitaciones': 2, 'garaje': S, 'zona': 'A', 'estado': 'Disponible'}
+
+print(" ")
+print("\n------------------ nº 1 Eliminar ------------------ \n")
+ 
+
+#Funcion para eliminar el inmueble
+def eliminar_inmueble(lista_pisos):
+    #lista actualizada
     print(lista_pisos)
+    eliminar = int(input("Escribe el número de ID del inmueble que deseas eliminar: "))
+    for i in range(len(lista_pisos)):
+      if lista_pisos[i]['id'] == eliminar:
+        del lista_pisos[i]
+        break
+    print(str(lista_pisos))
+    
 
 
-    return lista_pisos
+eliminar_inmueble(lista_pisos)
 
 
-dato={'año': 2020, 'metros': 150, 'habitaciones': 2, 'garaje': True, 'zona': 'A', 'estado': 'Disponible'}
-agregar_inmueble(dato)
-print("\n------------------ nº  ------------------ \n")
-
-
-#Funcion eliminar inmueble
-def eliminar_inmueble(dato):
-    lista_pisos.remove(dato)
-    print(lista_pisos)
-
-    return lista_pisos
-
-
-eliminar_inmueble(dato)
-print("\n------------------ nº  ------------------ \n")
-
+print("\n------------------ nº 2 Cambiar estado ------------------ \n")
 
 #Funcion cambiar estado del imnueble
-def cambiar_valor(lista_pisos):
-    
-    lista_pisos[2]['estado']= 'Reservado'
+def cambiar_inmueble_estado(posicion, estado):
+   
+    lista_pisos[posicion]['estado']= estado
 
     print(lista_pisos)  
     return lista_pisos
 
+posicion = int(input("Indique la posición del inmueble a cambiar: "))
+estado = input("Ingrese el estado que desea actualizar: ")
+cambiar_inmueble_estado(posicion, estado)
 
-cambiar_valor(lista_pisos)
+
 print("\n------------------ nº  ------------------ \n")
 
 
-# Zona A: precio = (metros x 100 + habitaciones x 500 + garaje x 1500) x (1 - antigüedad / 100)
-# Zona B: precio = (metros x 100 + habitaciones x 500 + garaje x 1500) x (1 - antigüedad / 100) x 1.5
-# Zona C: precio = (metros x 100 + habitaciones x 500 + garaje x 1500) x (1 - antigüedad / 100) x 2
-
 def añadir_precio(piso):
-    zona = (piso['metros'] * 100 + piso['habitaciones'] * 500 + int(piso['garaje']) * 1500) * (1 - (2020 - piso['año']) / 100)
+    precio_total = (piso['metros'] * 100 + piso['habitaciones'] * 500 + int(piso['garaje']) * 1500) * (1 - (2020 - piso['año']) / 100)
     
-    if (piso['zona'] == 'A'):
-     piso['precio'] = zona
 
     if (piso['zona'] == 'B'):
-     zona *= 1.5
-     piso['precio'] = zona
+       precio_total *= 1.5
     
     if (piso['zona'] == 'C'):
-     zona *= 2
-     piso['precio'] = zona
-    else: 
-         None
+       precio_total *= 2
 
-    return piso
+    else: 
+        ("Incorrecto") 
+
+    return precio_total
+
 
 
 def buscar_piso(lista_pisos, presupuesto):
-    def filtrar(piso):
-        return piso['precio'] <= presupuesto
+    
+    for i in lista_pisos:
+        precio_calculado = añadir_precio(i)
+        print(f"El precio es: {precio_calculado}")
+        if precio_calculado <= presupuesto:
+          print(i)
 
-    return list(filter(filtrar,map(añadir_precio, lista_pisos)))
+    
+    return precio_calculado
 
-
-print(buscar_piso(lista_pisos, 100000000))
+#Poner inputs de presupuesto
+print(buscar_piso(lista_pisos, 130000))

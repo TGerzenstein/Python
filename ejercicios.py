@@ -44,6 +44,7 @@ for letra in range(len(palabra)-1,-1,-1):
 
 #4) Escribe un programa que pida al usuario una cadena de texto y luego imprima
 #el número de palabras que contiene
+
 """ 
 texto = input("Escribe un texto: ")
 palabras = texto.split()           #dividir
@@ -54,5 +55,3 @@ for i in palabras:
         print(count)
  """
 
-#Escribe un programa que pida al usuario una cadena de texto y determine
-#cuántas veces aparece cada letra en la cadena
