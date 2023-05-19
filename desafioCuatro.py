@@ -1,7 +1,7 @@
 #Desafio 4: La inmobiliaria
 
 print("\n------------------ Inmuebles de la Inmobiliaria ------------------ \n")
-#Variable de una lista con diccionarios
+
 lista_pisos = [{'id': 1, 'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje': True, 'zona': 'C', 'estado': 'Disponible'}, 
   {'id': 2, 'año': 2016, 'metros': 80, 'habitaciones': 2, 'garaje': False, 'zona': 'B', 'estado': 'Reservado'}, 
   {'id': 3,'año': 2000, 'metros': 180, 'habitaciones': 4, 'garaje': True, 'zona': 'A', 'estado': 'Disponible'}, 
@@ -50,17 +50,36 @@ agregar_inmueble()
 #Este es un ejemplo de dato para ingresar en el input por el usuario, teniendo en cuenta las reglas de validación
 # dato = {'d': 6, 'año': 2020, 'metros': 150, 'habitaciones': 2, 'garaje': S, 'zona': 'A', 'estado': 'Disponible'}
 
+
+print(" ")
+print("\n------------------ nº 1 Editar ------------------ \n")
+
+""" 
+def editar_inmueble(lista_pisos):
+    inmueble = int(input("Escribe el número de ID del inmueble que deseas modificar: "))
+    if inmueble not in lista_pisos:
+       print("Ese inmueble no está en la lista.")
+    else:
+       inmueble_modificado = int(input("Escribe el ID del inmueble: "))
+       lista_pisos['id'] == inmueble_modificado
+       print(f"El inmueble se modificó {inmueble}")
+
+    return inmueble
+
+editar_inmueble(lista_pisos)
+ """
+
 print(" ")
 print("\n------------------ nº 1 Eliminar ------------------ \n")
 print(f"La lista actual de inmuebles: \n -> {lista_pisos}") 
 
 def eliminar_inmueble(lista_pisos):
-    """Funcion para eliminar un inmueble a través de su ID"""
+    """Funcion para eliminar un inmueble a través su ID"""
    
     eliminar = int(input("Escribe el número de ID del inmueble que deseas eliminar: "))
     for i in range(len(lista_pisos)):
       if lista_pisos[i]['id'] == eliminar:
-        del lista_pisos[i]
+        del lista_pisos[i]                
         break
     print(str(lista_pisos))
     
@@ -92,8 +111,10 @@ cambiar_inmueble_estado(posicion, estado)
 print(" ")
 print(f"Lista actualizada con el índice en la posición {posicion} y su estado {estado} es: \n -> {lista_pisos}.")
 
+
 print(" ")
-print("\n------------------ nº 3 ------------------ \n")
+print("\n------------------ nº 3 Búsqueda de inmuebles ------------------ \n")
+
 
 def añadir_precio(piso):
     """Funcion para calcular el precio que tienen los inmuebles según las reglas de precio"""
@@ -123,13 +144,15 @@ def buscar_piso(lista_pisos, presupuesto):
     for piso in lista_pisos:
       precio_calculado = añadir_precio(piso)
         
-      if (precio_calculado <= presupuesto):        
+      if ((precio_calculado <= presupuesto) and (piso['estado']== 'Disponible')):         
         nueva_lista.append(piso)
 
 
-    print(f"La propiedad disponible es: {nueva_lista}")   
+    print(f"Las propiedades son: {nueva_lista}")   
 
     return precio_calculado
 
-#Llamar a la funcion con los siguientes parámetros: lista y presupuesto
-buscar_piso(lista_pisos, 30000)
+
+#Llamado de la funcion con los siguientes parámetros: lista y presupuesto
+buscar_piso(lista_pisos, presupuesto = int(input("Ingrese el presupuesto: ")))
+
