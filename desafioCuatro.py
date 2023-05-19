@@ -9,7 +9,7 @@ lista_pisos = [{'id': 1, 'año': 2010, 'metros': 150, 'habitaciones': 4, 'garaje
   {'id': 5, 'año': 2008, 'metros': 60, 'habitaciones': 2, 'garaje': False, 'zona': 'C', 'estado': 'Disponible'}]
 
 
-print(f"Estos son los inmuebles actuales: {lista_pisos}")
+print(f"Estos son los inmuebles actuales: \n -> {lista_pisos}")
 print(" ")
 print("\n------------------ n1 Agregar ------------------ \n")
 
@@ -40,7 +40,7 @@ def agregar_inmueble():
         'estado': estado
         }
     lista_pisos.append(nuevo_inmueble)
-    print(f"El nuevo inmueble es: {nuevo_inmueble}")
+    print(f"El nuevo inmueble es: \n -> {nuevo_inmueble}")
 
     return nuevo_inmueble
 
@@ -52,7 +52,7 @@ agregar_inmueble()
 
 print(" ")
 print("\n------------------ nº 1 Eliminar ------------------ \n")
-print(f"La lista actual de inmuebles: {lista_pisos}") 
+print(f"La lista actual de inmuebles: \n -> {lista_pisos}") 
 
 def eliminar_inmueble(lista_pisos):
     """Funcion para eliminar un inmueble a través de su ID"""
@@ -73,7 +73,7 @@ print("\n------------------ nº 2 Cambiar estado ------------------ \n")
 
 #Lista actualizada
 print(" ")
-print(f"Esta es la lista actual de los inmuebles: {lista_pisos}")
+print(f"Esta es la lista actual de los inmuebles: \n -> {lista_pisos}")
 print(" ")
 
 def cambiar_inmueble_estado(posicion, estado):
@@ -87,10 +87,10 @@ def cambiar_inmueble_estado(posicion, estado):
 # Para ingresar posición según su índice 
 posicion = int(input("Indique la posición del inmueble a cambiar: "))
 # Para ingresar estado que se quiere modificar según las reglas de validación
-estado = input("Escriba el estado que desea actualizar: \n-> Disponible \n-> Reservado \n-> Vendido \n->").capitalize()
+estado = input("Escriba el estado que desea actualizar: \n-> Disponible \n-> Reservado \n-> Vendido \n-> ").capitalize()
 cambiar_inmueble_estado(posicion, estado)
 print(" ")
-print(f"Lista actualizada con el índice en la posición {posicion} y su estado {estado} es: {lista_pisos}.")
+print(f"Lista actualizada con el índice en la posición {posicion} y su estado {estado} es: \n -> {lista_pisos}.")
 
 print(" ")
 print("\n------------------ nº 3 ------------------ \n")
@@ -99,12 +99,16 @@ def añadir_precio(piso):
     """Funcion para calcular el precio que tienen los inmuebles según las reglas de precio"""
     precio_total = (piso['metros'] * 100 + piso['habitaciones'] * 500 + int(piso['garaje']) * 1500) * (1 - (2020 - piso['año']) / 100)
     
+    if (piso['zona'] == 'A'):
+      piso['precio'] = precio_total
 
     if (piso['zona'] == 'B'):
        precio_total *= 1.5
-    
+       piso['precio'] = precio_total
+
     if (piso['zona'] == 'C'):
        precio_total *= 2
+       piso['precio'] = precio_total
 
     else: 
         ("Incorrecto") 
@@ -113,16 +117,19 @@ def añadir_precio(piso):
 
 
 def buscar_piso(lista_pisos, presupuesto):
-    """Funcion para buscar piso"""
+    """Funcion para buscar inmuebles según el presupuesto dado por parámetro."""
     
-    for i in lista_pisos:
-        precio_calculado = añadir_precio(i)
-        #print(f"El precio es: {precio_calculado}")
-        if precio_calculado <= presupuesto:
-           print(lista_pisos)
+    nueva_lista = []
+    for piso in lista_pisos:
+      precio_calculado = añadir_precio(piso)
+        
+      if (precio_calculado <= presupuesto):        
+        nueva_lista.append(piso)
 
-    
+
+    print(f"La propiedad disponible es: {nueva_lista}")   
+
     return precio_calculado
 
-
-print(buscar_piso(lista_pisos, 140030))
+#Llamar a la funcion con los siguientes parámetros: lista y presupuesto
+buscar_piso(lista_pisos, 30000)
