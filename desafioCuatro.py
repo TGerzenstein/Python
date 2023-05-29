@@ -59,8 +59,8 @@ def agregar_inmueble():
       garaje_booleano = False 
     
     zona = input("Ingrese la zona donde está ubicado el inmueble: ")
-    while zona.upper() not in ['A','B','C']:
-       zona = input("La zona debe ser A, B o C. Ingrese la zona nuevamente: ")
+    while zona not in ['A','B','C']:
+       zona = input("La zona debe ser A, B o C. Ingrese la zona nuevamente: ").capitalize()
 
 
     estado = input("Ingrese el estado del inmueble: ")
