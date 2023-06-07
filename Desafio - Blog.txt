@@ -1,0 +1,151 @@
+
+------------------------------------------------------------
+             Desafío: Scripts de SQL - BLOG
+------------------------------------------------------------
+
+
+#Creacion basededatos
+CREATE DATABASE BLOG;
+
+USE BLOG;
+
+
+#Creacion de las tablas
+
+CREATE TABLE USUARIO(
+   Id INT NOT NULL AUTO_INCREMENT,
+   Nombre VARCHAR(30) NOT NULL,
+   Apellido VARCHAR(30) NOT NULL,
+   Telefono VARCHAR(50) NULL,
+   Username VARCHAR(100),
+   Email VARCHAR(100) NULL,
+   Contraseña VARCHAR(30),
+   Estado BOOLEAN,
+   fecha_creacion DATE NULL,
+   Avatar VARCHAR(255),
+   es_publico BOOLEAN,
+   es_colaborador BOOLEAN,
+   es_admin BOOLEAN,
+   
+   PRIMARY KEY (Id)
+);
+
+CREATE TABLE ARTICULO(
+   Id INT NOT NULL AUTO_INCREMENT,
+   Titulo VARCHAR(50) NOT NULL,
+   Resumen VARCHAR(300),
+   Contenido text,
+   Fecha_publicacion DATE,
+   Estado BOOLEAN,
+   Imagen VARCHAR(255),
+   Id_Usuario INT NOT NULL,
+ 
+   PRIMARY KEY (Id), 
+   FOREIGN KEY (Id_Usuario) REFERENCES USUARIO(Id)
+);
+
+
+CREATE TABLE COMENTARIO(
+    Id INT NOT NULL AUTO_INCREMENT,
+    Contenido text,
+    fecha_hora DATETIME,
+    Estado BOOLEAN,
+    Id_Articulo INT NOT NULL,
+    Id_Usuario INT NOT NULL,
+    
+	PRIMARY KEY (Id),
+    FOREIGN KEY (Id_Articulo) REFERENCES ARTICULO (Id),
+    FOREIGN KEY (Id_Usuario) REFERENCES USUARIO (Id)
+);
+
+
+CREATE TABLE CATEGORIA(
+   Id INT AUTO_INCREMENT NOT NULL,
+   Nombre VARCHAR(30) NOT NULL,
+   Descripcion VARCHAR(50),
+   Imagen VARCHAR(255),
+   Estado BOOLEAN,
+   Id_Categoria INT NOT NULL,
+   
+   PRIMARY KEY(Id),
+   FOREIGN KEY (Id_Categoria) REFERENCES CATEGORIA(Id)
+);
+
+
+CREATE TABLE CATEGORIA_ARTICULO(
+   Id_Articulo INT NOT NULL,
+   Id_Categoria INT NOT NULL,
+   
+   PRIMARY KEY (Id_Articulo, Id_Categoria),
+   FOREIGN KEY (Id_Articulo) REFERENCES ARTICULO (Id),
+   FOREIGN KEY (Id_Categoria) REFERENCES CATEGORIA (Id)
+);
+
+#Resolución
+
+#Comando para agregar datos en la tabla usuario: 1 usuario con rol de admin, 4 con rol de colaborador y 5 con rol de público.
+
+INSERT INTO USUARIO(Nombre,Apellido,Telefono,Username,Email,Contraseña,Estado,fecha_creacion,Avatar,es_publico,es_colaborador,es_admin)
+VALUES 
+('Lara','Croft','147147','LCroft','croftlara@gmail.com','357159',True,'2023-05-25','imagen001.jpg',False,False,True),      #admin
+('Maria','Blue','876222','MaryB','maryblue@gmail.com','203358',True,'2023-06-01','imagen002.jpg',False,True,False),         #es colaborador
+('Antonio','Mirk','879888','AntonM','antoniomirk@gmail.com','111123',True,'2023-06-02','imagen003.jpg',False,True,False),
+('Juan','Sky','932235','JuanS','juanpablosky@gmail.com','203358',True,'2023-06-02','imagen004.jpg',False,True,False),
+('Timoteo','Niks','566934','TimoNiks','timoteon@gmail.com','332287',True,'2023-06-04','imagen005.jpg',False,True,False),
+('Clark','Kent','123456','Rick','rickyandmorty@gmail.com','458712',True,'2023-05-29','imagen006.jpg',True,False,False), #es publico
+('Bruce','Wayne','039778','Batman','batman@gmail.com','458712',True,'2023-05-31','imagen007.jpg',True,False,False),
+('Barry','Allen','336985','Flash','theflash@gmail.com','107594',True,'2023-05-28','imagen008.jpg',True,False,False),
+('Arthur','Curry','155785','Aquaman','aquaman@gmail.com','635999',True,'2023-06-01','imagen009.jpg',True,False,False),
+('Diana','Prince','445522','WonderW','dprince@gmail.com','532352',True,'2023-05-26','imagen020.jpg',True,False,False);
+
+
+#Comando para actualizar el rol a admin de uno de los usuarios agregado con rol de colaborador.
+
+UPDATE USUARIO
+SET es_admin = True,
+es_colaborador = False
+WHERE id = '5';
+#Timoteo Niks con id='5', que tenia rol de colaborador ahora tiene rol de admin;
+
+#Consulta en la tabla Usuario para ver la tabla actualizada;
+SELECT * FROM USUARIO;
+
+
+#Agregar datos a la tabla ARTICULO: 3 artículos con estado TRUE y uno con estado FALSE;
+
+INSERT INTO ARTICULO(Titulo,Resumen,Contenido,Fecha_publicacion,Estado,Imagen,Id_Usuario)
+VALUES 
+('Sabores Regionales','Texto 1','Texto 2','2023-06-06',True,'imagen2.jpg','2'),
+('La favorita de todos: la milanesa','Texto 3','Texto 4','2023-06-04',True,'imagen20.jpg','3'),
+('Los beneficios del vino','Texto 6','Texto 7','2023-06-01',False,'imagen27.jpg','4'),
+('Cocinas de Argentina para el mundo','Texto 22','Texto 23','2023-06-07',True,'imagen12','2');
+
+SELECT * FROM ARTICULO;
+
+#Comando necesario para eliminar el artículo que tenga estado FALSE;
+
+DELETE FROM ARTICULO 
+WHERE id = '3';
+
+
+#Comando para introducir 3 comentarios al primer artículo agregado y 2 comentarios al segundo artículo;
+
+INSERT INTO COMENTARIO(Contenido,fecha_hora,Estado,Id_Articulo,Id_Usuario)
+VALUES
+('Comentario 1','2023-06-06 10:30:24',True,'1','2'),
+('Comentario 2','2023-06-05 11:30:23',True,'1','2'),
+('Comentario 3','2023-06-05 13:00:15',True,'1','2'),
+('Comentario 4','2023-06-05 13:00:15',True,'2','3'),
+('Comentario 5','2023-06-05 13:00:15',True,'2','3');
+ 
+SELECT * FROM COMENTARIO;
+
+
+#Comando para listar todos los artículos que tengan comentarios: mostrando el título del artículo, la fecha_publicacion del artículo, el
+#nombre del usuario que realizo el comentario y la fecha_hora que realizó dicho comentario, agrupados por artículos;
+
+SELECT ARTICS.Titulo, ARTICS.fecha_publicacion, USU.Nombre, COMENTS.fecha_hora
+ 
+FROM ARTICULO ARTICS
+INNER JOIN USUARIO USU ON USU.Id = ARTICS.Id 
+INNER JOIN COMENTARIO COMENTS ON COMENTS.Id = ARTICS.Id
