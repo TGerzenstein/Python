@@ -1,4 +1,4 @@
-#atributos: id, nombre, apellido, teléfono, username, email, contraseña, fecha de registro, avatar, estado, online
+#atributos: id, nombre, apellido, teléfono, username, email, contraseña, fecha de registro, avatar, estado
 # métodos: login(), registrar()
 
 
@@ -6,10 +6,16 @@
 #usuario = clase, el molde
 
 class Usuario:
-    def __init__(self,username,contrasenia,estado=False):
-      self.username = 'Tatiana'
-      self.contrasenia = '123456'
+    def __init__(self,id,nombre,apellido,username,email,contrasenia,fecha_registro,estado=False):
+      self.id = id
+      self.nombre = nombre
+      self.apellido = apellido
+      self.username = username
+      self.email = email
+      self.contrasenia = contrasenia
+      self.fecha_registro = fecha_registro
       self.estado = estado
+      
     
 
     def get_user(self):
@@ -27,7 +33,7 @@ class Usuario:
       return f"El nombre de usuario es {self.username} y está {conectado}"
     
     
-    def iniciar_sesion(self):
+    def login(self):
         ingresar_contrasenia = input("Ingrese su contraseña: ")      
         if ingresar_contrasenia == self.contrasenia:
           print("Contraseña correcta.") 
@@ -35,5 +41,12 @@ class Usuario:
         else:
            print("Contraseña incorrecta. Intente de nuevo.")
 
+    def registrar(self):
+        nombre = input("Ingrese su nombre: ")
+        username = input("Ingrese su username: ") 
+        contrasenia = input("Ingrese su contrasenia: ")
+
+
+
 usuario1 = Usuario(input("Ingrese su nombre de usuario: "), input("Ingrese su contraseña: ")) 
-usuario1.iniciar_sesion()
+usuario1.login()
