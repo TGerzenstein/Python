@@ -42,7 +42,8 @@ class Motocicleta:
     
 
     def informar_combustible(self):
-       print("---------------- Informar combustible disponible ----------------")
+       print(" ")
+       print("----- Informar combustible disponible -----")
        print(f"Reporte de la motocicleta de marca {self.marca} con modelo {self.modelo}.")
        print(f"La cantidad disponible de combustible es {self.combustible_litros} litros.")
 
@@ -60,29 +61,30 @@ class Motocicleta:
           else:
              print("La cantidad que deseas cargar supera al límite máximo de la capacidad del tanque.")
 
-
-
+print(" ")
+print("----------- Primer Objeto -----------")
 #Primer instancia de la clase Motocicleta
 #Atributos: color, matricula, combustible_litros, capacidad_maxima_combustible, ruedas, marca, modelo, fecha_fabricacion, velocidad_punta, peso
 #Combustible_litros: 10
 #Ruedas: 2
-moto_uno = Motocicleta("Negra",123,10,17,2,"Honda","RDF-20","23/05/2023",500,4000)
+moto_uno = Motocicleta("Negra",123,10,17,2,"Honda","RDF-20","23/05/2023",500,2500)
 #Prueba del método
 moto_uno.arrancar()
 
 
 #Segunda instancia
-moto_dos = Motocicleta(
-    peso = 6000,
-    color = "Gris",
-    modelo = "KLD-23",
-    marca = "BMW",
-    matricula = "RDD-23",
-    combustible_litros = 4,
-    fecha_fabricacion = "12/04/2023",
-    velocidad_punta = 400,
-    ruedas = 2,
-    capacidad_maxima_combustible = 20)
+print(" ")
+print("----------- Segundo Objeto -----------")
+moto_dos = Motocicleta(peso = 6000,
+                       color = "Gris",
+                       modelo = "KLD-23",
+                       marca = "BMW",
+                       matricula = "RDD-23",
+                       combustible_litros = 4,
+                       fecha_fabricacion = "12/04/2023",
+                       velocidad_punta = 400,
+                       ruedas = 2,
+                       capacidad_maxima_combustible = 20)
       
 
 #Se añade el atributo "precio", por fuera de la clase
@@ -100,3 +102,4 @@ moto_dos.informar_combustible()
 
 #Método para saber cuánto se carga al tanque
 moto_dos.combustible_disponible()
+

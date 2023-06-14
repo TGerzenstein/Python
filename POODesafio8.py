@@ -2,51 +2,61 @@
 # métodos: login(), registrar()
 
 
-#objeto = persona
-#usuario = clase, el molde
-
 class Usuario:
-    def __init__(self,id,nombre,apellido,username,email,contrasenia,fecha_registro,estado=False):
+    def __init__(self,id,nombre,apellido,username,email,contrasenia,fecha_registro,avatar,estado):
       self.id = id
       self.nombre = nombre
       self.apellido = apellido
       self.username = username
       self.email = email
-      self.contrasenia = contrasenia
+      self.__contrasenia = contrasenia
       self.fecha_registro = fecha_registro
+      self.avatar = avatar
       self.estado = estado
-      
-    
-
-    def get_user(self):
-       return self.username
 
 
-    def get_contrasenia(self):
-       return self.contrasenia
+def menu():
+    print("""
+    ¡Bienvenido al blog!
+    MENU:
+    1 -> 
+    2 -> 
+    0 -> Salir
+    """)
 
-    def __str__(self):
-      if self.estado:
-          conectado = "conectado"
-      else: 
-          conectado = "desconectado" 
-      return f"El nombre de usuario es {self.username} y está {conectado}"
-    
-    
     def login(self):
-        ingresar_contrasenia = input("Ingrese su contraseña: ")      
-        if ingresar_contrasenia == self.contrasenia:
-          print("Contraseña correcta.") 
+        login_username = input("Ingrese su username: ")  
+        login_contrasenia = input("Ingrese su contraseña: ")
+        if (login_contrasenia == self.__contrasenia) and (login_username == self.username):
+          print("Inició sesión.")
+          print(f"Bienvenid@ {self.nombre}!") 
           self.estado = True
         else:
-           print("Contraseña incorrecta. Intente de nuevo.")
-
-    def registrar(self):
-        nombre = input("Ingrese su nombre: ")
-        username = input("Ingrese su username: ") 
-        contrasenia = input("Ingrese su contrasenia: ")
+           print("Ingreso incorrecto. Intente de nuevo.")
 
 
 
-usuario1 = Usuario(input("Ingrese su nombre de usuario: "), input("Ingrese su contraseña: ")) 
-usuario1.login()
+"""     def registrar_usuario(self):
+        
+        lista_usuarios = []
+        id = int(input("Ingrese ID: "))
+        nombre = input("Ingrese nombre de usuario: ").capitalize()
+        apellido = input("Ingrese apellido de usuario: ").capitalize()
+        username = input("Ingrese username de usuario: ")
+        email = input("Ingrese correo electrónico: ")
+        contrasenia = input("Ingrese su contraseña: ")
+        self.nuevo_usuario = {    
+        'id': id,                                             
+        'nombre': nombre,
+        'apellido': apellido,
+        'username': username,
+        'email': email,
+        'contrasenia': contrasenia,
+        }
+        lista_usuarios.append(self.nuevo_usuario)
+        print(self.nuevo_usuario)
+        return self.nuevo_usuario
+ """
+
+persona1 = Usuario(1,"Maria","Martin","Mary","mary@gmail.com","HDVLM","12/05/2023",False)
+persona1.login()
