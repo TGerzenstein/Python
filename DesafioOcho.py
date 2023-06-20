@@ -15,16 +15,16 @@ class Usuario:
 
 
     def get_username(self):
-       return self.username
+      return self.username
 
     def get_contrasenia(self):
-       return self.contrasenia 
+      return self.contrasenia 
     
     def get_estado(self):
-       return self.estado
+      return self.estado
     
     def set_estado(self,nuevo_estado):
-        self.estado = nuevo_estado
+      self.estado = nuevo_estado
 
     def login(self):
         login_username = input("Ingrese su username: ")  
@@ -48,13 +48,6 @@ class Usuario:
        self.set_estado(False)
 
 
-#persona1 = Usuario(1,"Maria","Martin","Mary","mary@gmail.com","HDVLM","12/05/2023",False)
-#persona1.login()
-
-#persona2 = Usuario()
-#persona2.registrar_usuario()
-
-
 class Publico(Usuario):
     
     def __init__(self, id=0, nombre=" ", apellido=" ", username=" ", email=" ", contrasenia=" ", fecha_registro=0, avatar=" ", estado=False, es_publico = True):
@@ -76,10 +69,10 @@ class Publico(Usuario):
        self.set_estado(False)
        self.set_publico(True)
 
-    #def comentar(self):
-      # nuevo_comentario = input("Realice su comentario: ")
-      #  coment = Comentario(2, 10, 1, nuevo_comentario)  
-      # print(coment.get_comentario())
+    def comentar(self):
+      nuevo_comentario = input("Realice su comentario: ")
+      coment = Comentario(2, 10, 1, nuevo_comentario)  
+      print(coment.get_comentario())
 
 
 
@@ -153,6 +146,14 @@ class Comentario:
       return self.contenido
 
 
+
+#Instancias 
+
+#persona1 = Usuario(1,"Maria","Martin","Mary","mary@gmail.com","HDVLM","12/05/2023",False)
+#persona1.login()
+
+#persona2 = Usuario()
+#persona2.registrar_usuario()
 
 #persona2 = Publico()
 #persona2.comentar()
