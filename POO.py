@@ -45,6 +45,3 @@ class Camioneta(Coche):
 mi_camioneta = Camioneta('Rojo',4,20,2.5,300)
 print(mi_camioneta.get_carga()) 
         
-
-
-

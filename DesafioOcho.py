@@ -1,5 +1,6 @@
 import time
 
+
 #Creacion de clase Usuario;
 class Usuario:
     def __init__(self, id_usuario = 0, nombre = " ", apellido = " ", username = " ", email = " ", contrasenia = " ", fecha_registro = 0, avatar = " ", estado = False):
@@ -42,7 +43,7 @@ class Usuario:
       self.apellido = input("Ingrese apellido: ")
       self.username = input("Ingrese username: ")
       self.email = input("Ingrese email: ")
-      self.contrasenia = input("Ingrese contrasenia: ")
+      self.contrasenia = input("Ingrese contraseña: ")
       self.fecha_registro = int(time.time())
       self.avatar = input("Ingrese avatar: ")
       self.set_estado(False)
@@ -67,7 +68,7 @@ class Publico(Usuario):
       self.apellido = input("Ingrese apellido: ")
       self.username = input("Ingrese username: ")
       self.email = input("Ingrese email: ")
-      self.contrasenia = input("Ingrese contrasenia: ")
+      self.contrasenia = input("Ingrese contraseña: ")
       self.fecha_registro = int(time.time())
       self.avatar = input("Ingrese avatar: ")
       self.set_estado(False)
@@ -93,7 +94,7 @@ class Colaborador(Usuario):
     self.apellido = input("Ingrese apellido: ")
     self.username = input("Ingrese username: ")
     self.email = input("Ingrese email: ")
-    self.contrasenia = input("Ingrese contrasenia: ")
+    self.contrasenia = input("Ingrese contraseña: ")
     self.fecha_registro = int(time.time())
     self.avatar = input("Ingrese avatar: ")
     self.set_estado(False)
@@ -106,8 +107,8 @@ class Colaborador(Usuario):
 
 
   def publicar_colaborador(self):
-    nuevo_titulo = input("Ingrese titulo del articulo: ")
-    nuevo_resumen = input("Ingrese descripcion: ")
+    nuevo_titulo = input("Ingrese el título del artículo: ")
+    nuevo_resumen = input("Ingrese descripción del artículo: ")
     nuevo_contenido = input("Realice su comentario: ")
     articulo1 = Articulo(1, 20, nuevo_titulo, nuevo_resumen, nuevo_contenido)
     print(articulo1.get_titulo())
@@ -150,9 +151,11 @@ class Comentario:
       return self.contenido
 
 
+
+
 #Instancias 
 
-#print(" ")
+print(" ")
 print("-------------- Login --------------")
 persona1 = Usuario(1,"Maria","Martin","Mary","mary@gmail.com","HDVLM","12/05/2023",False)
 persona1.login()
@@ -165,7 +168,13 @@ persona2.registrar_usuario()
 print(f"Bienvenido {persona2.nombre} {persona2.apellido}.\n-> Su usuario {persona2.username} se ha registrado.")
 
 
-#Instancia del Publico para utilizar el método comentar
+#Registrar Publico
+print(" ")
+print("-------------- Registrar publico --------------")
+persona4 = Publico()
+persona4.registrar_publico()
+
+#Instancia del Publico para utilizar comentar
 print(" ")
 print("-------------- Comentar publico --------------")
 persona2 = Publico()
