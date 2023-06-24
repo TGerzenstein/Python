@@ -1,5 +1,7 @@
 import time
 
+#Desafio 8 - Programación Orientada a Objetos;
+#Grupo 7 
 
 #Creacion de clase Usuario;
 class Usuario:
@@ -191,4 +193,3 @@ print(" ")
 print("-------------- Publicar colaborador --------------")
 persona3 = Colaborador()
 persona3.publicar_colaborador()
-
